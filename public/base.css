@@ -27,6 +27,10 @@ a{
     --Warning: #F22A40;
     --Light: #F8F8FA;
     --Dark: #000425;
+
+    --bp-mobile: 770px;
+    --bp-tablet: 990px;
+    --bp-desktop: 1200px;
 }
 
 /*Fonts*/
