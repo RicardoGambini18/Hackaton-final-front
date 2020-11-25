@@ -1,0 +1,63 @@
+/*Base*/
+*,*::after,*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+/*Variables*/
+
+:root{
+    --x-small: 11px;
+    --small: 14px;
+    --medium: 16px;
+    --large: 20px;
+    --x-large: 26px;
+    --xx-large: 54px;
+
+    --Primary: #5640FF;
+    --Warning: #F22A40;
+    --Light: #F8F8FA;
+    --Dark: #000425;
+}
+
+/*Fonts*/
+
+.Title-1{
+    font-size: var(--xx-large);
+    font-family: 'Poppins', sans-serif;
+}
+.Title-2{
+    font-size: var(--x-large);
+    font-family: 'Poppins', sans-serif;
+}
+.Title-3{
+    font-size: var(--large);
+    font-family: 'Poppins', sans-serif;
+}
+.Title-4{
+    font-size: var(--medium);
+    font-family: 'Poppins', sans-serif;
+}
+.Title-5{
+    font-size: var(--small);
+    font-family: 'Poppins', sans-serif;
+}
+.Parrafo{
+    font-size: var(--small);
+    font-family: 'Roboto' sans-serif;
+}
+.f-Small{
+    font-size: var(--x-small);
+    font-family: 'Roboto' sans-serif;
+}
+
+/*Layout*/
