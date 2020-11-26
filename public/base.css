@@ -1,18 +1,3 @@
-/*Base*/
-*,*::after,*::before{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-li{
-    list-style: none;
-}
-
-a{
-    text-decoration: none;
-}
-
 /*Variables*/
 
 :root{
@@ -31,6 +16,27 @@ a{
     --bp-mobile: 770px;
     --bp-tablet: 990px;
     --bp-desktop: 1200px;
+}
+
+
+/*Base*/
+
+*,*::after,*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+div{
+    background-color: var(--Light);
 }
 
 /*Fonts*/
