@@ -13,7 +13,7 @@
 export default {};
 </script>
 
-<style lang="scss" >
+<style lang="scss" scoped >
 .respaldo {
   width: 233px;
   height: 63.08px;

@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <br><br><br><br><br>
-    <Footer/>
+    <vermas/>
 
   </div>
 </template>
@@ -9,11 +9,11 @@
 <script>
 // @ is an alias to /src
 
-import Footer from '../components/footer'
+import vermas from '../components/vermas'
 export default {
   name: 'Home',
   components:{
-    Footer
+    vermas
   }
 }
 </script>
