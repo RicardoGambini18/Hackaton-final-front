@@ -1,22 +1,24 @@
 <template>
-  <div class="footerencabezado">
-    <img
-      class="footerencabezado-img"
-      srcset="/assets/Chinita_pacha.png 1x, 
-      /assets/Chinita_pacha@2x.png 2x"   alt=""
-    />
+  <div class="footerencabezado l-container-pd">
+    <div class="l-section">
+      <img
+        class="footerencabezado-img"
+        srcset="/assets/Chinita_pacha.png 1x, 
+        /assets/Chinita_pacha@2x.png 2x"   alt=""
+      />
 
-    <div class="footerencabezado-descrip">
-        <h2 class="Title-2">Sé parte de la comunidad</h2>
-      <p class="Parrafo">
-        Programas semi-presenciales para el desarrollo de habilidades de
-        programación a lo largo de todo el Stack tecnológico.
-      </p>
-      <p class="Parrafo">
-        Al finalizar sabrás cómo crear una página web y desarrollar la lógica
-        detrás del funcionamiento de una aplicación, así como formar parte de
-        una gran comunidad de desarrolladores.
-      </p>
+      <div class="footerencabezado-descrip">
+          <h2 class="Title-2">Sé parte de la comunidad</h2>
+        <p class="Parrafo">
+          Programas semi-presenciales para el desarrollo de habilidades de
+          programación a lo largo de todo el Stack tecnológico.
+        </p>
+        <p class="Parrafo">
+          Al finalizar sabrás cómo crear una página web y desarrollar la lógica
+          detrás del funcionamiento de una aplicación, así como formar parte de
+          una gran comunidad de desarrolladores.
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -36,7 +38,9 @@ export default {
   display: flex;
   align-items: center;
   margin-bottom: 140px;
-
+  .l-section{
+    background: none;
+  }
    @media screen and (max-width: 770px){
         padding: 0 42px 36px 10px;
         height: 516px;

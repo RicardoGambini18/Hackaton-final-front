@@ -2,15 +2,15 @@
 <template>
   <div class="beneficio">
     <div class="beneficio-boxImg centradoPerfecto">
-      <img :src="conteneido.img" alt="" />
+      <img :src="contenido.img" />
       
     </div>
     <div class="beneficio-boxContenido">
       <p class="beneficio-titulo Title-4">
-          {{conteneido.titulo}}
+          {{contenido.titulo}}
       </p>
       <p class="beneficio-descripcion Parrafo">
-        {{conteneido.descrip}}
+        {{contenido.descrip}}
       </p>
     </div> 
   </div>
@@ -21,11 +21,11 @@
 export default {
   name:'Beneficios',
     props: {
-    conteneido: {
-        titulo:"",
-        descrip:"",
-        img:""
-        }
+    contenido: {
+      titulo:"",
+      descrip:"",
+      img:""
+    }
   },
   
 
@@ -40,10 +40,12 @@ export default {
   align-items: center;
 }
 .beneficio {
-  max-width: 718px;
+  width: 100%;
   height: 160px;
   display: flex;
   margin: 30px 0;
+  background-color:#f2f3f5;
+  border-radius: 10px;
    @media screen and (max-width: 770px){
          margin: 20px 0;
       }
@@ -56,6 +58,7 @@ export default {
     img {
       width: 60px;
     }
+    background: none;
   }
   &-boxContenido {
     width: 80%;
@@ -64,6 +67,7 @@ export default {
     flex-direction: column;
     justify-content: space-evenly;
     text-align: justify;
+    background: none;
       @media screen and (max-width: 770px){
         width: 60%;
         justify-content: center;
@@ -79,6 +83,13 @@ export default {
       @media screen and (max-width: 770px){
         display: none;
       }
+  }
+}
+
+@media screen and(min-width: 990px) {
+  .beneficio{
+    grid-column-start: 1;
+    grid-column-end: 3;
   }
 }
 </style>

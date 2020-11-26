@@ -14,7 +14,7 @@ export default {
 <style lang="scss">
 
 .hero{
-    background: url(../assets/hero__movil.png) no-repeat;
+    background: url(/assets/hero__movil.png) no-repeat;
     background-size: cover;
     height: 50vh;
     display: flex;
@@ -22,7 +22,7 @@ export default {
     justify-content: center;
     padding: 0px 30px;
     @media (min-width:  770px) { 
-        background: url(../assets/hero_desktop.png) no-repeat;
+        background: url(/assets/hero_desktop.png) no-repeat;
         background-size: cover;
         height: 70vh;
     }

@@ -1,19 +1,21 @@
 <template>
   <div class="home">
-    <br><br><br><br><br>
-    <vermas/>
-
+    <Hero />
+    <Footer />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
+import Hero from '@/components/Hero.vue';
+import Header from '@/components/Header.vue';
+import Footer from '@/components/Footer.vue';
 
-import vermas from '../components/vermas'
 export default {
   name: 'Home',
   components:{
-    vermas
+    Hero,
+    Header,
+    Footer
   }
 }
 </script>
