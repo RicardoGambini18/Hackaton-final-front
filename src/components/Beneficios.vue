@@ -19,6 +19,7 @@
 <script>
  
 export default {
+  name:'Beneficios',
     props: {
     conteneido: {
         titulo:"",

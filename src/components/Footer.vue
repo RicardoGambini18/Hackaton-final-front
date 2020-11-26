@@ -1,22 +1,22 @@
 <template>
   <div class="footer">
-    <footerencabezado />
+    <Footerencabezado />
     <p class="Title-3 footer-subTitulo">Beneficios</p>
     <div class="footer-beneficios">
-      <beneficios :conteneido="contenidoA"/>
-      <beneficios :conteneido="contenidoB"/>
-      <beneficios :conteneido="contenidoC"/>
+      <Beneficios :conteneido="contenidoA"/>
+      <Beneficios :conteneido="contenidoB"/>
+      <Beneficios :conteneido="contenidoC"/>
     </div>
     <div class="footer-final">
-        <respaldo/>
+        <Respaldo/>
     </div>
   </div>
 </template>
 
 <script>
-import Beneficios from "./beneficios";
-import footerencabezado from "./footerEncabezado";
-import respaldo from "./respaldo";
+import Beneficios from "@/components/Beneficios";
+import footerencabezado from "@/components/Footerencabezado";
+import respaldo from "@/components/Respaldo";
 
 export default {
   name: "Footer",
@@ -41,9 +41,9 @@ export default {
       }
   },
   components: {
-    footerencabezado,
+    Footerencabezado,
     Beneficios,
-    respaldo,
+    Respaldo,
   },
   
 };

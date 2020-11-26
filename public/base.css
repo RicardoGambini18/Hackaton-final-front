@@ -71,3 +71,43 @@ div{
 }
 
 /*Layout*/
+
+.l-container-pd{
+    width: 100%;
+    padding: 20px 20px;
+    min-width: 300px;
+}
+
+.l-container-full{
+    width: 100%;
+    padding: 0 20px;
+    min-width: 300px;
+}
+
+.l-section{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 770px){
+    .l-container-pd{
+        padding: 30px 40px;
+    }
+    .l-container-full{
+        width: 100%;
+        padding: 0 40px;
+        min-width: 300px;
+    }
+}
+
+@media screen and (min-width: 990px){
+    .l-container-pd{
+        padding: 40px 50px;
+    }
+    .l-container-full{
+        width: 100%;
+        padding: 0 50px;
+        min-width: 300px;
+    }
+}
