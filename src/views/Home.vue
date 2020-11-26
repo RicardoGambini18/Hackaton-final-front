@@ -1,12 +1,19 @@
 <template>
   <div class="home">
-    <h1>Home</h1>
+    <br><br><br><br><br>
+    <vermas/>
+
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
+
+import vermas from '../components/vermas'
 export default {
-  name: 'Home'
+  name: 'Home',
+  components:{
+    vermas
+  }
 }
 </script>
