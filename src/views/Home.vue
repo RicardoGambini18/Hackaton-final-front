@@ -1,12 +1,19 @@
 <template>
   <div class="home">
-    <h1>Home</h1>
+    <br><br><br><br><br>
+    <Footer/>
+
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
+
+import Footer from '../components/footer'
 export default {
-  name: 'Home'
+  name: 'Home',
+  components:{
+    Footer
+  }
 }
 </script>
