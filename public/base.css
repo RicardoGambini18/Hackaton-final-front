@@ -36,7 +36,7 @@ a{
 }
 
 div{
-    background-color: white;
+    background-color: none;
 }
 
 /*Fonts*/
@@ -63,24 +63,24 @@ div{
 }
 .Parrafo{
     font-size: var(--small);
-    font-family: 'Roboto' sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 .f-Small{
     font-size: var(--x-small);
-    font-family: 'Roboto' sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 /*Layout*/
 
 .l-container-pd{
     width: 100%;
-    padding: 20px 20px;
+    padding: 20px 10px;
     min-width: 300px;
 }
 
 .l-container-full{
     width: 100%;
-    padding: 0 20px;
+    padding: 0 10px;
     min-width: 300px;
 }
 
@@ -92,11 +92,11 @@ div{
 
 @media screen and (min-width: 770px){
     .l-container-pd{
-        padding: 30px 40px;
+        padding: 30px 30px;
     }
     .l-container-full{
         width: 100%;
-        padding: 0 40px;
+        padding: 0 30px;
         min-width: 300px;
     }
 }

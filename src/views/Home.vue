@@ -1,6 +1,13 @@
 <template>
   <div class="home">
     <Hero />
+    <Formdescuento />
+    <div class="l-container-full home-respaldo">
+      <div class="l-section">
+        <Respaldo white="false" />
+      </div>
+    </div>
+    <Programas />
     <Footer />
   </div>
 </template>
@@ -9,13 +16,30 @@
 import Hero from '@/components/Hero.vue';
 import Header from '@/components/Header.vue';
 import Footer from '@/components/Footer.vue';
+import Respaldo from '@/components/Respaldo.vue';
+import Programas from '@/components/Programas.vue';
+import Formdescuento from '@/components/Formdescuento.vue';
 
 export default {
   name: 'Home',
   components:{
     Hero,
     Header,
-    Footer
+    Footer,
+    Respaldo,
+    Programas,
+    Formdescuento
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .home{
+    &-respaldo{
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+  }
+</style>

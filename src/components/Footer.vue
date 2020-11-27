@@ -9,8 +9,11 @@
         <Beneficios :contenido="contenidoC"/>
       </div>
     </div>
-    <div class="footer-final">
-        <Respaldo/>
+    <div class="l-container-full">
+      <Formdesmov />
+    </div>
+    <div class="footer-final l-container-full">
+        <Respaldo white="true"/>
     </div>
   </div>
 </template>
@@ -19,6 +22,7 @@
 import Beneficios from "@/components/Beneficios";
 import Footerencabezado from "@/components/Footerencabezado";
 import Respaldo from "@/components/Respaldo";
+import Formdesmov from '@/components/Formdesmov.vue';
 
 export default {
   name: "Footer",
@@ -46,6 +50,7 @@ export default {
     Footerencabezado,
     Beneficios,
     Respaldo,
+    Formdesmov
   },
   
 };
@@ -56,6 +61,7 @@ export default {
   &-subTitulo {
     text-align: left;
     margin-bottom: 30px;
+    font-weight: bold;
   }
   &-beneficios{
     display: grid;
@@ -64,14 +70,18 @@ export default {
   }
   &-final{
     background-color: #000D29;
-    width: 100%;
-    height: 102px;
-    margin-top: 80px;
+    margin-top: 0;
+    height: 80px;
     display: flex;
     align-items: center;
-    padding-left: 86px;
-    @media screen and (max-width: 770px){
-      margin-top: 20px;
+    justify-content: flex-start;
+  }
+}
+
+@media screen and (min-width: 770px) {
+  .footer{
+    &-final{
+      height: 102px;
     }
   }
 }

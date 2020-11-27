@@ -1,7 +1,12 @@
 <template>
- <section class="hero">   
-     <h1 class="hero__title ">¡Explota todo tu potencial tecnológico!</h1>
-     <p class="hero__desc Title-4">Con nuestros programas de especialización</p>
+ <section class="hero l-container-pd">
+     <img src="/assets/login.png">
+     <div class="l-section">
+         <div class="hero__content">
+             <h1 class="Title-2">¡Explota todo tu potencial<br>tecnológico!</h1>
+             <p class="Title-4">Con nuestros programas de especialización</p>
+         </div>
+     </div>
  </section>
 </template>
 
@@ -12,49 +17,86 @@ export default {
 </script>
 
 <style lang="scss">
-
 .hero{
-    background: url(/assets/hero__movil.png) no-repeat;
-    background-size: cover;
-    height: 50vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0px 30px;
-    @media (min-width:  770px) { 
-        background: url(/assets/hero_desktop.png) no-repeat;
-        background-size: cover;
-        height: 70vh;
+    margin-bottom: 0;
+    width: 100%;
+    position: relative;
+    height: calc( ( 100vw * 500 ) / 1366);
+    min-height: 300px;
+    overflow: hidden;
+    img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
     }
-    @media (min-width:  990px) { 
-        height: 80vh;
+    div{
+        background: none;
     }
-    &__title{
-        color: var(--Light);
-        font-family:   'Poppins', sans-serif;
-        font-size: 26px;
-        font-weight: 700;
-        margin-top: 80px;
-        margin-bottom: 20px;
-        @media (min-width:  770px) { 
-            font-size: var(--x-large);
-            width: 600px;
+    .l-section{
+        position: relative;
+        height: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+    }
+    &__content{
+        .Title-2{
+            color: var(--Light);
+            margin-bottom: 20px;
+        }
+        .Title-4{
+            color: var(--Light);
+            max-width: 90%;
         }
     }
-    @media (min-width:  990px) { 
+}
 
-        font-size: var(--xx-large);
-        width: 800px;
-        margin-top: 130px;
-    }
-    &__desc{
-        color: var(--Light);
-        font-weight: 400;
-        @media (min-width:  770px) { 
-            font-size: var(--medium);
+@media screen and (min-width: 520px) {
+    .hero{
+        &__content{
+            .Title-2{
+                font-size: 36px;
+            }
+            .Title-4{
+                font-size: var(--large);
+            }
         }
-        @media (min-width:  990px) { 
-            font-size: var(--large);
+    }
+}
+
+@media screen and (min-width: 990px) {
+    .hero{
+        &__content{
+            .Title-2{
+                font-size: 42px;
+            }
+            .Title-4{
+                margin-bottom: 40px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .hero{
+        &__content{
+            .Title-2{
+                font-size: var(--xx-large);
+            }
+            .Title-4{
+                margin-bottom: 60px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 819px) {
+    .hero{
+        img{
+            width: 819px;
+            left: calc( (819px - 100vw) / -2 );
         }
     }
 }

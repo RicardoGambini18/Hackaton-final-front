@@ -1,23 +1,20 @@
-
 <template>
   <div class="beneficio">
-    <div class="beneficio-boxImg centradoPerfecto">
-      <img :src="contenido.img" />
-      
+    <div class="beneficio-boxImg">
+      <img :src="contenido.img">
     </div>
     <div class="beneficio-boxContenido">
-      <p class="beneficio-titulo Title-4">
-          {{contenido.titulo}}
+      <p class="Title-4">
+        {{contenido.titulo}}
       </p>
-      <p class="beneficio-descripcion Parrafo">
+      <p class="Parrafo">
         {{contenido.descrip}}
       </p>
-    </div> 
+    </div>
   </div>
 </template>
 
 <script>
- 
 export default {
   name:'Beneficios',
     props: {
@@ -32,64 +29,65 @@ export default {
 };
 </script>
 
-<style lang="scss" scope>
-.centradoPerfecto {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-.beneficio {
-  width: 100%;
-  height: 160px;
-  display: flex;
-  margin: 30px 0;
-  background-color:#f2f3f5;
-  border-radius: 10px;
-   @media screen and (max-width: 770px){
-         margin: 20px 0;
-      }
-  &-boxImg {
-    width: 20%;
-    height: 100%;
-     @media screen and (max-width: 770px){
-        width: 40%;
-      }
-    img {
-      width: 60px;
-    }
-    background: none;
-  }
-  &-boxContenido {
-    width: 80%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    text-align: justify;
-    background: none;
-      @media screen and (max-width: 770px){
-        width: 60%;
-        justify-content: center;
-        align-items: center;
-      }
-  }
-  &-titulo{
-      font-weight: bold;
-  }
-  &-descripcion{
-      width: 90%;
-      line-height: 19px;
-      @media screen and (max-width: 770px){
-        display: none;
-      }
-  }
-}
-
-@media screen and(min-width: 990px) {
+<style scoped lang="scss">
   .beneficio{
-    grid-column-start: 1;
-    grid-column-end: 3;
+    width: 100%;
+    height: 108px;
+    display: grid;
+    grid-template-columns: 137px 1fr;
+    margin-bottom: 30px;
+    background-color: #f2f3f5;
+    border-radius: 10px;
+    div{
+      background: none;
+    }
+    &-boxImg{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img{
+        width: 50px;
+      }
+    }
+    &-boxContenido{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      padding-right: 20px;
+      flex-direction:column ;
+      align-items: flex-start;
+      justify-content: center;
+      .Parrafo{
+        display: none;
+        text-align: justify;
+      }
+      .Title-4{
+        font-weight: bold;
+      }
+    }
   }
-}
+  @media screen and (min-width: 500px){
+    .beneficio{
+      height: 160px;
+      &-boxImg{
+        img{
+          width: 60px;
+        }
+      }
+      &-boxContenido{
+        .Parrafo{
+          display: block;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+  @media screen and (min-width: 990px) {
+    .beneficio{
+      grid-column-start: 1;
+      grid-column-end: 3; 
+    }
+  }
 </style>
