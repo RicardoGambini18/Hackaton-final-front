@@ -21,7 +21,7 @@ import Respaldo from "./Respaldo";
 export default {
   name: "Footer",
   data(){
-      return{
+      return{ 
           contenidoA:{
             titulo:"Aprende de Expertos",
             descrip:"Aprende directamente de expertos del mercado a través del análisis y solución de problemas de programación. Utilizando los frameworks y herramientas de mayor relevancia dentro del mundo del coding.",

@@ -39,7 +39,7 @@ export default {
           "Al finalizar el programa y certificarte a nombre de IDAT, podrás acceder a ofertas laborales especialmente identificadas para la comunidad PachaQTec, a través de nuestra plataforma de empleabilidad IDAT JOB.",
         img: "/assets/empleabilidad.svg",
       },],
-
+    
     clases: {
         beneficioVerMaslistado: true,
         ocultar: true,

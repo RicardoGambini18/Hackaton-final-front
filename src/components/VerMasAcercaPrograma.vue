@@ -29,6 +29,13 @@ export default {
       },
     };
   },
+   props: {
+    contenidoProps : {
+        programa: "",
+        acercaDe: "",
+      
+        }
+  },
   methods: {
     abriacordion() {
       if (this.clases.ocultar == true) {
