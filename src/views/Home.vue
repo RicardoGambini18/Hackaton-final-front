@@ -1,19 +1,45 @@
 <template>
   <div class="home">
-    <br><br><br><br><br>
-    <vermas/>
-
+    <Hero />
+    <Formdescuento />
+    <div class="l-container-full home-respaldo">
+      <div class="l-section">
+        <Respaldo white="false" />
+      </div>
+    </div>
+    <Programas />
+    <Footer />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
+import Hero from '@/components/Hero.vue';
+import Header from '@/components/Header.vue';
+import Footer from '@/components/Footer.vue';
+import Respaldo from '@/components/Respaldo.vue';
+import Programas from '@/components/Programas.vue';
+import Formdescuento from '@/components/Formdescuento.vue';
 
-import vermas from '../components/vermas'
 export default {
   name: 'Home',
   components:{
-    vermas
+    Hero,
+    Header,
+    Footer,
+    Respaldo,
+    Programas,
+    Formdescuento
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .home{
+    &-respaldo{
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+  }
+</style>

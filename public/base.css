@@ -36,7 +36,7 @@ a{
 }
 
 div{
-    background-color: var(--Light);
+    background-color: none;
 }
 
 /*Fonts*/
@@ -63,11 +63,51 @@ div{
 }
 .Parrafo{
     font-size: var(--small);
-    font-family: 'Roboto' sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 .f-Small{
     font-size: var(--x-small);
-    font-family: 'Roboto' sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 /*Layout*/
+
+.l-container-pd{
+    width: 100%;
+    padding: 20px 10px;
+    min-width: 300px;
+}
+
+.l-container-full{
+    width: 100%;
+    padding: 0 10px;
+    min-width: 300px;
+}
+
+.l-section{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 770px){
+    .l-container-pd{
+        padding: 30px 30px;
+    }
+    .l-container-full{
+        width: 100%;
+        padding: 0 30px;
+        min-width: 300px;
+    }
+}
+
+@media screen and (min-width: 990px){
+    .l-container-pd{
+        padding: 40px 50px;
+    }
+    .l-container-full{
+        width: 100%;
+        padding: 0 50px;
+        min-width: 300px;
+    }
+}

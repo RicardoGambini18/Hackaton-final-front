@@ -1,22 +1,28 @@
 <template>
   <div class="footer">
     <Footerencabezado />
-    <p class="Title-3 footer-subTitulo">Beneficios</p>
-    <div class="footer-beneficios">
-      <Beneficios :conteneido="contenidoA"/>
-      <Beneficios :conteneido="contenidoB"/>
-      <Beneficios :conteneido="contenidoC"/>
+    <div class="l-container-pd">
+      <div class="l-section footer-beneficios">
+        <p class="Title-3 footer-subTitulo">Beneficios</p>
+        <Beneficios :contenido="contenidoA"/>
+        <Beneficios :contenido="contenidoB"/>
+        <Beneficios :contenido="contenidoC"/>
+      </div>
     </div>
-    <div class="footer-final">
-        <Respaldo/>
+    <div class="l-container-full">
+      <Formdesmov />
+    </div>
+    <div class="footer-final l-container-full">
+        <Respaldo white="true"/>
     </div>
   </div>
 </template>
 
 <script>
-import Beneficios from "./Beneficios";
-import Footerencabezado from "./Footerencabezado";
-import Respaldo from "./Respaldo";
+import Beneficios from "@/components/Beneficios";
+import Footerencabezado from "@/components/Footerencabezado";
+import Respaldo from "@/components/Respaldo";
+import Formdesmov from '@/components/Formdesmov.vue';
 
 export default {
   name: "Footer",
@@ -44,6 +50,7 @@ export default {
     Footerencabezado,
     Beneficios,
     Respaldo,
+    Formdesmov
   },
   
 };
@@ -51,31 +58,47 @@ export default {
 
 <style lang="scss" scope>
 .footer {
-
-
-  &-beneficios{
-    width: 100%;
-    padding: 0 86px;
-      @media screen and (max-width: 770px){
-        padding: 0 10px;
-      }
-  }
   &-subTitulo {
-      text-align: left;
-      margin-left: 86px;
-      
+    text-align: left;
+    margin-bottom: 30px;
+    font-weight: bold;
+  }
+  &-beneficios{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-column-gap: 40px;
   }
   &-final{
-          background-color: #000D29;
-          width: 100%;
-          height: 102px;
-          margin-top: 80px;
-          display: flex;
-          align-items: center;
-          padding-left: 86px;
-          @media screen and (max-width: 770px){
-        margin-top: 20px;
-      }
-      }
+    background-color: #000D29;
+    margin-top: 0;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+}
+
+@media screen and (min-width: 770px) {
+  .footer{
+    &-final{
+      height: 102px;
+    }
+  }
+}
+
+@media screen and(min-width: 990px) {
+  .footer{
+    &-beneficios{
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+}
+
+@media screen and(min-width: 1200px){
+  .footer{
+    &-beneficios{
+      grid-column-gap: 86px;
+    }
+  }
 }
 </style>
