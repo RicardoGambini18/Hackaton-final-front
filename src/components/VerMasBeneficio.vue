@@ -63,7 +63,7 @@ export default {
 
 <style lang="scss" scoped >
 .beneficioVerMas {
-  width: 670px;
+  width: 100%;
   margin-bottom: 20px;
   
  @media screen and (max-width: 770px) {

@@ -40,6 +40,8 @@ export default new Vuex.Store({
         const curso = await data.json();
 
         curso.subNombres = curso.nombre.split("\n");
+        curso.descripcion=curso.descripcion.split("\n");
+        curso.tamanohorario=curso.horario.length+1;
 
         commit('getCursoMutation', curso);
       }

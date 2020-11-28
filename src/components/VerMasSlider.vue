@@ -2,11 +2,11 @@
   <div class="slider">
     <div class="slider-boxtitulo" @click="abriacordion">
       <h2 class="slider-titulo Title-4">
-        {{ contenido.titulo }}
+        {{ titulo }}
       </h2>
     </div>
     <div :class="clases">
-      <img id="slider" :src="contenido.imgSlider[this.counter]" alt="" />
+      <img id="slider" :src="'/assets/'+imgSlider" alt="" />
     </div>
   </div>
 </template>
@@ -17,9 +17,8 @@ export default {
     return {
       counter: 0,
       contenido: {
-        titulo:
-          "Conoce y desarrolla con nosotros la lógica y el funcionamiento que se encuentra detrás de aplicaciones web, móviles y de escritorio",
-        imgSlider: [
+       //Por si nos dan array de imagenes
+       imgSlider: [
           "/assets/back_end.png",
           "/assets/curso.png",
           "/assets/data.png",
@@ -56,7 +55,7 @@ export default {
 
 <style lang="scss" scoped >
 .slider {
-  width: 670px;
+  width: 100%;
   margin-bottom: 20px;
   @media screen and (max-width: 770px) {
     width: 100%;

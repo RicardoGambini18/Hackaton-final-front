@@ -2,7 +2,7 @@
   <div class="acercaDe">
     <div class="acercaDe-boxtitulo" @click="abriacordion">
       <h2 class="acercaDe-titulo Title-4">
-        ¿En qué consiste el programa de {{ contenido.programa }}?
+        ¿En qué consiste el programa de {{ programa }}?
       </h2>
     </div>
     <div :class="clases"  v-for="(parrafo,index) in textoAcercaDe" :key="index">
@@ -17,12 +17,7 @@
 export default {
   data() {
     return {
-      textoAcercaDe: [],
-      contenido: {
-        programa: "desarrollo back end",
-        acercaDe:
-          "Programas virtuales para el desarrollo de habilidades de programación a lo largo de todo el Stack tecnológico.\n Al finalizar sabrás cómo crear una página web y desarrollar la lógica detrás del funcionamiento de una aplicación, así como formar parte de una gran comunidad de desarrolladores.",
-      },
+     
       clases: {
         acercaDeParrafo: true,
         ocultar: true,
@@ -31,7 +26,7 @@ export default {
   },
   props:{
     programa: String,
-    acercaDe: String
+    textoAcercaDe: Array
   },
   methods: {
     abriacordion() {
@@ -42,15 +37,6 @@ export default {
       this.clases.ocultar = true;
     },
 
-    separarTexto() {
-      let textoSeparado = [];
-      textoSeparado = this.contenido.acercaDe.split("\n");
-      
-      this.textoAcercaDe=textoSeparado;
-    },
-  },
-  created() {
-      this.separarTexto();
   },
  
 }
@@ -59,7 +45,7 @@ export default {
 
 <style lang="scss" scoped >
 .acercaDe {
-  width: 670px;
+  width: 100%;
   margin-bottom: 20px;
   @media screen and (max-width: 770px) {
     width: 100%;

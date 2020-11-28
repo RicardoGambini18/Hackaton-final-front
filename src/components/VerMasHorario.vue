@@ -6,26 +6,21 @@
     <div v-bind:class="clases">
       <table class="tabla egt">
         <tr class="tabla-fila">
-          <th class="tabla-celda tabla-colInicio" rowspan="4">
-            Incio de clases: 7 de diciembre
+          <th class="tabla-celda tabla-colInicio Title-5" :rowspan="tamanoHor">
+            {{inicioClases}}
           </th>
-          <th class="tabla-encabezado tabla-celda">Frecuencia</th>
-          <th class="tabla-encabezado tabla-celda">Horario</th>
+          <th class="tabla-encabezado tabla-celda Title-5">Frecuencia</th>
+          <th class="tabla-encabezado tabla-celda Title-5">Horario</th>
         </tr>
-        <tr class="tabla-fila">
-          <td class="tabla-celda">Lunes, martes y miércoles</td>
-          <td class="tabla-celda">7:30 p.m a 9:30 p.m</td>
+        <tr class="tabla-fila" v-for="(item,index) in horario" :key="index">
+          <td class="tabla-celda Parrafo">
+            {{item.frecuencia}}
+          </td>
+          <td class="tabla-celda Parrafo">
+            {{item.hora}}
+          </td>
         </tr>
 
-        <tr class="tabla-fila">
-          <td class="tabla-celda">Jueves (Asesoria)</td>
-          <td class="tabla-celda">7:30 p.m a 9:30 p.m</td>
-        </tr>
-
-        <tr class="tabla-fila">
-          <td class="tabla-celda">Sábado</td>
-          <td class="tabla-celda">8:00 a.m a 2:00 p.m</td>
-        </tr>
       </table>
     </div>
   </div>
@@ -43,7 +38,8 @@ export default {
   },
   props:{
     inicioClases: String,
-    horario: Array
+    horario: Array,
+    tamanoHor:Number
   },
   methods: {
     abriacordion() {
@@ -59,7 +55,7 @@ export default {
 
 <style lang="scss" scoped >
 .horario {
-  width: 670px;
+  width: 100%;
   margin-bottom: 20px;
  @media screen and (max-width: 770px) {
      width: 100%;
@@ -106,6 +102,7 @@ export default {
   }
   &-celda {
     width: 40%;
+    text-align: center;
   }
   &-colInicio {
     background-color: var(--Primary);

@@ -14,12 +14,13 @@
                     />
                     <VerMasAcercaPrograma
                         :programa="curso.nombre"
-                        :acercaDe="curso.descripcion"
+                        :textoAcercaDe="curso.descripcion"
                     />
                     <VerMasBeneficio />    
                     <VerMasHorario
                         :inicioClases="curso.inicioClases"
                         :horario="curso.horario"
+                        :tamanoHor="curso.tamanohorario"
                     />
                     <VerMasCurricula
                         :planEstudio="curso.planEstudio"
