@@ -12,16 +12,12 @@
     <div class="l-container-full">
       <Formdesmov />
     </div>
-    <div class="footer-final l-container-full">
-        <Respaldo white="true"/>
-    </div>
   </div>
 </template>
 
 <script>
 import Beneficios from "@/components/Beneficios";
 import Footerencabezado from "@/components/Footerencabezado";
-import Respaldo from "@/components/Respaldo";
 import Formdesmov from '@/components/Formdesmov.vue';
 
 export default {
@@ -49,7 +45,6 @@ export default {
   components: {
     Footerencabezado,
     Beneficios,
-    Respaldo,
     Formdesmov
   },
   
@@ -68,23 +63,9 @@ export default {
     grid-template-columns: 1fr;
     grid-column-gap: 40px;
   }
-  &-final{
-    background-color: #000D29;
-    margin-top: 0;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-  }
 }
 
-@media screen and (min-width: 770px) {
-  .footer{
-    &-final{
-      height: 102px;
-    }
-  }
-}
+
 
 @media screen and(min-width: 990px) {
   .footer{

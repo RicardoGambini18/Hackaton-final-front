@@ -31,6 +31,10 @@ export default {
       },
     };
   },
+  props:{
+    titulo: String,
+    imgSlider: String
+  },
   methods: {
     abriacordion() {
       if (this.clases.ocultar == true) {

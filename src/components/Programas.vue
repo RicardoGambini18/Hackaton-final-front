@@ -86,7 +86,7 @@ export default {
         }
     }
     @media screen and (min-width: 1200px){
-        .programas-cards{
+        .programas{
             &-cards{
                 grid-column-gap: 86px;
             }

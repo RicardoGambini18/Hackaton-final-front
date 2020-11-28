@@ -3,8 +3,10 @@
      <img src="/assets/login.png">
      <div class="l-section">
          <div class="hero__content">
-             <h1 class="Title-2">¡Explota todo tu potencial<br>tecnológico!</h1>
-             <p class="Title-4">Con nuestros programas de especialización</p>
+             <h1 v-for="subTitle in title" :key="subTitle" class="Title-2">
+                 {{subTitle}}
+            </h1>
+             <p v-if="home == true" class="Title-4">Con nuestros programas de especialización</p>
          </div>
      </div>
  </section>
@@ -12,7 +14,11 @@
 
 <script>
 export default {
-    name: 'Hero'
+    name: 'Hero',
+    props:{
+        home: Boolean,
+        title: Array
+    }
 }
 </script>
 
@@ -44,11 +50,11 @@ export default {
     &__content{
         .Title-2{
             color: var(--Light);
-            margin-bottom: 20px;
         }
         .Title-4{
             color: var(--Light);
             max-width: 90%;
+            margin-top: 20px;
         }
     }
 }
