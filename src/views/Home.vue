@@ -1,6 +1,9 @@
 <template>
   <div class="home">
-    <Hero />
+    <Hero 
+      :home="true"
+      :title="['¡Explota todo tu potencial', 'tecnológico!']"
+    />
     <Formdescuento />
     <div class="l-container-full home-respaldo">
       <div class="l-section">

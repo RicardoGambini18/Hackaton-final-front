@@ -39,15 +39,11 @@ export default {
         horarioboxTabla: true,
         ocultar: true,
       },
-
-      inicioClases: "",
-      horario: [
-        {
-          frecuencia: "",
-          hora: "",
-        },
-      ],
     };
+  },
+  props:{
+    inicioClases: String,
+    horario: Array
   },
   methods: {
     abriacordion() {

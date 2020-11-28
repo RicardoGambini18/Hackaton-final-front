@@ -29,12 +29,9 @@ export default {
       },
     };
   },
-   props: {
-    contenidoProps : {
-        programa: "",
-        acercaDe: "",
-      
-        }
+  props:{
+    programa: String,
+    acercaDe: String
   },
   methods: {
     abriacordion() {
@@ -46,18 +43,14 @@ export default {
     },
 
     separarTexto() {
-        console.log("HOla")
       let textoSeparado = [];
       textoSeparado = this.contenido.acercaDe.split("\n");
       
       this.textoAcercaDe=textoSeparado;
-
-      console.log(this.textoAcercaDe);
     },
   },
   created() {
-      this.separarTexto()
-      
+      this.separarTexto();
   },
  
 }
