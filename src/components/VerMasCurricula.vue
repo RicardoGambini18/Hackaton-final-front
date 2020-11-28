@@ -6,18 +6,35 @@
     <div :class="clases">
         <ul class="curricula-subtitulo">
            
-            <li class="curricula-semanaTitulo Title-4"   
-            v-on:click="cambiarcurricula($event)" 
-            v-for="(planEst ,index) in planEstudio" 
-            :key="index">
-                
+            <li class="curricula-semanaTitulo"   
+            v-for="(planEst ,index) in planEstudio"
+            :key="index"
+            >
+              <span
+                v-if="unidad == planEst.titulo"
+                v-on:click="cambiarcurricula($event)"
+                class="Title-4 is-active"
+                :id="planEst.titulo"
+              >
                 {{planEst.titulo}} 
+              </span>
+
+              <span
+                v-else
+                v-on:click="cambiarcurricula($event)"
+                class="Title-4"
+                :id="planEst.titulo"
+              >
+                {{planEst.titulo}} 
+              </span>
+                
             </li>
+
         </ul>
 
 
         <ul class="curricula-boxSemana"  v-for="(planEst ,index) in planEstudio" :key="index">
-            <div class="curricula-condicional" v-if="index==unidad">
+            <div class="curricula-condicional" v-if="unidad == planEst.titulo">
                 <li class="curricula-subtema "  v-for="(semana ,index) in planEst.semanas" :key="index">
                   <h3 class="Title-5 "> {{semana.titulo}}</h3>
                   <p class="Parrafo " v-for="(subtema, index) in semana.subtemas" :key="index">
@@ -40,7 +57,7 @@ export default {
 
     data() {
     return {
-    unidad:0, 
+    unidad: "UNIDAD 1 Y 2", 
     
     clases: {
         curriculalistado: true,
@@ -60,14 +77,14 @@ export default {
     },
 
     cambiarcurricula(event){
-      console.log(event)
+      this.unidad = event.target.id;
     }
 
 
     },
   props: {
     planEstudio: Array,
-  },
+  }
 };
 
 </script>
@@ -113,6 +130,7 @@ export default {
   width: 100%;
     display: flex;
     flex-wrap: wrap;
+    padding: 20px;
 }
   &Parrafo {
     width: 100%;
@@ -121,10 +139,12 @@ export default {
   }
   &-boxSemana{
     width: 100%;
+    background: #f1f1f1;
+    
   
 }
 &-subtema{
-     width: 50%;
+    width: 50%;
     padding: 10px;
     h3{
         margin-bottom: 10px;
@@ -151,7 +171,7 @@ export default {
 &-subtitulo{
     width: 100%;
     height: 50px;
-    margin-bottom: 20px;
+    margin-bottom: 0;
     background-color:var(--Primary) ;
     display: flex;
     flex-direction: row;
@@ -159,12 +179,24 @@ export default {
 &-semanaTitulo{
     height: 100%;
     width: 100%;
-    border: 2px solid white;
     display: flex;
     justify-content: center;
     align-items: center;
     color: var(--Light);
     font-weight: 800;
+    position: relative;
+    z-index: 5;
+    .Title-4{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+    .is-active{
+      background-color: rgb(9, 18, 105);
+    }
 }
 }
 
@@ -172,5 +204,16 @@ export default {
   @media screen and (max-width: 770px) {
     display: none;
   }
+}
+@media screen and (max-width: 770px){
+    .curricula{
+      &-condicional{
+        flex-direction: column;
+        flex-wrap: nowrap;
+      }
+      &-subtema{
+        width: 100%;
+      }
+    }
 }
 </style>
