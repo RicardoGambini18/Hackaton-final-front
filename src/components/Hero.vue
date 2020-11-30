@@ -30,8 +30,6 @@ export default {
     padding: 0px 30px;
     position: relative;
     
-    
-     
     @media (min-width:  770px) { 
        
         height: 80vh;

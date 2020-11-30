@@ -52,7 +52,7 @@ export default {
    
 
     &--scoll{
-         background:  var( --Dark);
+         background: red;
          top: 0;
 
     }
