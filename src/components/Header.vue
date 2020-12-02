@@ -1,129 +1,90 @@
 <template>
-    <header class="header">
-        <img src="/assets/logo.svg" alt="logo" class="header__img">
-
-
-
-        <div class="header__icons">
-            
-            <div class="header__shoppings">
-                <img src="/assets/shopping_card.svg"  class="header__shopping" alt="">  
-                <div class="header__item">
-                    3
-                </div>    
-            </div>
-            
-            <div class="header__burgers"  >
-                <div class="header__burger header__burger--top"></div>
-                <div class="header__burger  header__burger--center"></div>
-                <div class="header__burger  header__burger--button"></div>
-            </div>
-        </div>
-    </header>
+  <nav class="Nav l-container-full" v-if="(visibility) && (solid)">
+      <div class="l-section">
+          <router-link to="/" class="Nav__Logo">
+            <img src="/assets/logo.svg">
+          </router-link>
+          <img src="/assets/menu.svg" class="Nav__Menu">
+      </div>
+  </nav>
+  <nav class="Nav l-container-full" id="nav" v-else-if="(visibility) && (solid==false)">
+      <div class="l-section">
+          <router-link to="/" class="Nav__Logo">
+            <img src="/assets/logo.svg">
+          </router-link>
+          <img src="/assets/menu.svg" class="Nav__Menu">
+      </div>
+  </nav>
 </template>
 
 <script>
-
-    
-
-
-
 export default {
     name: 'Header',
-    methods: {
-       
+    props:{
+        visibility: Boolean,
+        solid: Boolean
     },
+    created(){
+        window.addEventListener("scroll",()=>{
+            const nav = document.getElementById("nav");
+            if(nav){
+                if(window.scrollY >= 100){
+                    nav.style.background = "#000425"
+                }
+                else{
+                    nav.style.background = "none"
+                }
+            }
+        })
+    }
 }
 </script>
 
-<style lang="scss">
-
-
-.header{
-    height: 55px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 0px 30px;
-    z-index: 10;
-    position: fixed;
-    top: 20px;
-   
-
-    &--scoll{
-         background: red;
-         top: 0;
-
-    }
-   
-    
-    &__img{
-       height: 30px;
-    }
-    &__icons{
-       background: none;
-       display: flex;
-       flex-direction: row;
-       
-    }
-    &__shoppings{
-        background: transparent;
-        position: relative;
-    }
-    &__shopping{
-
-        font-size: 150px;
-        width: 30px;
-        cursor: pointer;
-        
-    }
-    &__item{
-         color: var(--Light);
-        font-weight: 700;
-        font-family: 'Poppins', sans-serif;
-        position: absolute;
+<style scoped lang="scss">
+    .Nav{
+        height: 50px;
+        position: fixed;
         top: 0;
-        right: 0;
-        z-index: 1;
-        background: var(--Primary);
-        width: 17px;
-         height: 17px;
-        border-radius: 50%;
-       
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        font-size: 14px;
+        left: 0;
+        background: var(--Dark); 
+        z-index: 5;
+        .l-section{
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+        &__Logo{
+            width: 138px;
+            height: 22px;
+            cursor: pointer;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        &__Menu{
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+        }
     }
-    &__icon{
-        color: var(--Light);
-        font-size: 26px;
-        cursor: pointer;
-        margin-left: 20px;
+    #nav{
+        background: none;
+        transition: .3s all;
     }
-    &__burgers{
-
-        cursor: pointer;
-        width: 50px;
-        background: transparent;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-left: 30px;
-
-       
-       
+    @media screen and (min-width: 770px){
+        .Nav{
+            height: 70px;
+            &__Logo{
+                width: 184px;
+                height: 33px;
+            }
+            &__Menu{
+                width: 30px;
+                height: 30px;
+            }
+        }
     }
-    &__burger{
-        background: var(--Light);
-        border-radius: 5px;
-        width: 60%;
-        height: 3px;
-        margin: 3px 0px;
-        
-    }
-}  
 </style>

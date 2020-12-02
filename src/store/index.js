@@ -6,7 +6,9 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     cursos: [],
-    curso: {}
+    curso: {},
+    footer: true,
+    nav: {}
   },
   mutations: {
     getCursosMutation(state, payload){
@@ -14,6 +16,12 @@ export default new Vuex.Store({
     },
     getCursoMutation(state, payload){
       state.curso = payload;
+    },
+    setFooterMutation(state,payload){
+      state.footer = payload;
+    },
+    setNavMutation(state,payload){
+      state.nav = payload;
     }
   },
   actions: {
@@ -48,6 +56,12 @@ export default new Vuex.Store({
       catch(error){
         console.log(error);
       }
+    },
+    setFooterAction({commit},view){
+      commit('setFooterMutation',view)
+    },
+    setNavAction({commit},view){
+      commit('setNavMutation',view)
     }
   },
   modules: {

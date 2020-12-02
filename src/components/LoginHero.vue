@@ -1,128 +1,90 @@
 <template>
-
-
-
-<section class="loginhero">
-    <div  class="l-section">
-        <div  class="loginhero__logo">
-        <img src="/assets/logo.svg"   class="" alt="">
+  <section class="loginhero l-container-full">
+    <div class="loginhero__bg">
+        <img src="/assets/hero_desktop.png">
+    </div>
+    <div class="loginhero__contain l-section">
+        <div class="loginhero__nav">
+            <img src="/assets/logo.svg">
+        </div>
+        <div class="loginhero__text">
+            <h1 class="Title-2">¡Explota todo tu potencial<br>tecnológico!</h1>
+            <p class="Title-4">Con nuestros programas<br>de especialización</p>
+        </div>
+        <div class="loginhero__foot">
+            <Respaldo white="true"/>
         </div>
     </div>
-
-    <img src="/assets/hero_desktop.png"  class="loginhero__img" alt="">
-  
-    <div  class="loginhero__titles">
-        <h1 class="loginhero__title ">¡Explota todo tu potencial tecnológico!</h1>
-        <p class="loginhero__desc">Con nuestros programas de especialización</p>
-
-    </div>
-    
-   <div  class="l-section">
-       <div  class="loginhero__content">
-
-        <p class="loginhero__descs">Con el respaldo de:</p>
-        <div  class="loginhero__icons">
-            <img src="/assets/blancointercorp.svg" alt=""  class="loginhero__icon">
-            <img src="/assets/blancoidad.svg" alt=""   class="loginhero__icon">
-            <img src="/assets/blancozegel.svg" alt=""  class="loginhero__icon">
-        </div>
-    </div>
-  </div>
-
- 
-
-</section>
-
+  </section>
 </template>
 
 <script>
-
+import Respaldo from '@/components/Respaldo.vue';
 
 export default {
-
-comments:{
-   
-}
-  
-}
-</script >
-
-<style lang="scss">
-
-.loginhero{
-
-    
-    position: relative;
-  
-   
-    &__logo{
-
-        background: transparent;
-        display: none;
-        @media (min-width:  770px) { 
-        display: block;
-        position: absolute;
-        top: 30px;
+    name: 'LoginHero',
+    components:{
+        Respaldo
     }
-    }
-    
-    &__img{
-        display: none;
-        @media (min-width:  770px) { 
-       
-         display: block;
-          height: 100vh;
-          width: 100%;
-          max-width: 100%;
-          
+}
+</script>
+
+<style scoped lang="scss">
+    .loginhero{
+        width: 100%;
+        height: 100%;
+        position: relative;
+        &__bg{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw ;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: -1;
+            img{
+                min-width: 100%;
+                min-height: 100%;
+            }
         }
-       
+        &__contain{
+            height: 100%;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 120px 1fr 120px;
+        }
+        &__nav{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        &__text{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+            .Title-2{
+                color: white;
+                margin-bottom: 20px;
+                text-align: right;
+            }
+            .Title-4{
+                color: white;
+                text-align: right;
+            }
+        }
+        &__foot{
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
     }
-    &__titles{
-
-        color: var(--Light);
-        position: absolute;
-        top: 0;
-        background: transparent;
-        transform:translate(-40%, -50%);
-        right:20%;
-        top:50%;
-        text-align: right;
-
-    }
-    &__title{
-
-        font-size: var(--xx-large);
-        width: 700px;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 700;
-        
-    }
-    
-    &__content{
-        position: absolute;
-        bottom: 0;
-        background: none;
-        color: var(--Light)
-
-    }
-    &__descs{
-        background: none;
-        text-align: left;
-         font-family: 'Roboto' sans-serif;
-    }
-    &__icons{
-       
-        background: none;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 250px;
-        margin: 10px 0px;
-        
-    }
-   
-}
-
-
 </style>

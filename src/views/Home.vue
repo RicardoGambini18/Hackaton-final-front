@@ -22,6 +22,7 @@ import Footer from '@/components/Footer.vue';
 import Respaldo from '@/components/Respaldo.vue';
 import Programas from '@/components/Programas.vue';
 import Formdescuento from '@/components/Formdescuento.vue';
+import { mapActions } from 'vuex';
 
 export default {
   name: 'Home',
@@ -32,6 +33,17 @@ export default {
     Respaldo,
     Programas,
     Formdescuento
+  },
+  methods:{
+      ...mapActions(['setFooterAction', 'setNavAction'])
+  },
+  created(){
+      this.setFooterAction(true);
+      this.setNavAction({
+        visibility: true,
+        solid: false
+      });
+      window.scroll(0,0);
   }
 }
 </script>

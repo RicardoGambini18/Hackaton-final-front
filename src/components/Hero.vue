@@ -30,6 +30,7 @@ export default {
     height: calc( ( 100vw * 500 ) / 1366);
     min-height: 300px;
     overflow: hidden;
+    z-index: 2;
     img{
         position: absolute;
         top: 0;

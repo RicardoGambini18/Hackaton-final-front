@@ -68,6 +68,7 @@ export default {
         overflow: hidden;
         max-width: 400px;
         margin: 0 auto;
+        z-index: 4;
         &-Img{
             position: relative;
             z-index: 1;

@@ -7,16 +7,13 @@
 
 <script>
 export default {
-      name: 'Form-Subtmit'
-
+    name: 'Form-Subtmit'
 }
 </script>
 
 <style lang="scss">
 
  .button{
-
-
    background: var(--Primary);
    border:  none;
    color: var(--Light);
@@ -27,9 +24,6 @@ export default {
   font-size: var( --medium);
   margin-top: 20px;
   cursor: pointer;
-   &:hover{
-    
-   }
  }
   
 </style>

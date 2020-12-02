@@ -1,7 +1,11 @@
 <template>
   <div id="app">
+    <Header 
+      :visibility="nav.visibility"
+      :solid="nav.solid"
+    />
     <router-view/>
-    <div class="footer-final l-container-full">
+    <div class="footer-final l-container-full" v-if="footer">
         <Respaldo white="true"/>
     </div>
   </div>
@@ -9,10 +13,16 @@
 
 <script>
 import Respaldo from '@/components/Respaldo.vue';
+import Header from '@/components/Header.vue';
+import { mapState } from 'vuex'
 
 export default {
   components:{
-    Respaldo
+    Respaldo,
+    Header
+  },
+  computed:{
+    ...mapState(['footer', 'nav'])
   }
 }
 </script>

@@ -145,8 +145,6 @@ export default {
         }
     }
     &__img{
-
-       
         width: 40px;
         height: 40px;
         position: absolute;
@@ -154,11 +152,9 @@ export default {
         right: 20px;
         @media (min-width:  770px) { 
             top: 20px;
-        right: 150px;
-               
+            right: 150px; 
         }
     }
-
 }
 
 </style>

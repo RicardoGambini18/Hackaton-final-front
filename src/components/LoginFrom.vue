@@ -1,78 +1,108 @@
 <template>
+  <section class="LoginForm">
+      <div class="LoginForm__Content">
+          <div class="LoginForm__Switch">
+              <div v-if="view == 'iniciar-sesion'" class="Switch__Login is-active">
+                  <span class="Title-5">Iniciar Sesión</span>
+                  <div class="Switch__Stick"></div>
+              </div>
+              <div
+              v-else
+              class="Switch__Login"
+              @click="setView('iniciar-sesion')"
+              >
+                  <span class="Title-5">Iniciar Sesión</span>
+                  <div class="Switch__Stick"></div>
+              </div>
 
-
-
-   
-   
-   
-    <form action="" class="form">
-
-    
-    <LoginNav/>
-    <LoginSocial/>
-    <LoginResgistry/>
-    <FormSubtmit/>
-    
-
-
-    </form>
-   
-   
-
-    
-
-
-  
+              <div v-if="view == 'registro'" class="Switch__Register is-active">
+                  <span class="Title-5">Registrarse</span>
+                  <div class="Switch__Stick"></div>
+              </div>
+              <div
+              v-else
+              class="Switch__Register"
+              @click="setView('registro')"
+              >
+                  <span class="Title-5">Registrarse</span>
+                  <div class="Switch__Stick"></div>
+              </div>
+          </div>
+          <LoginIn v-if="view == 'iniciar-sesion'" />
+          <LoginRegister v-if="view == 'registro'" />
+      </div>
+  </section>
 </template>
-
 <script>
-
-
-import LoginNav from '@/components/LoginNav.vue'
-import LoginSocial from '@/components/LoginSocial.vue'
-
-import LoginResgistry from '@/components/LoginResgistry.vue'
-import FormError from '@/components/FormError.vue'
-import FormSubtmit from '@/components/FormSubtmit.vue'
-import LonginRecover from '@/components/LonginRecover.vue'
+import LoginIn from '@/components/LoginIn.vue';
+import LoginRegister from '@/components/LoginRegister.vue'
+import router from '@/router'
 
 export default {
-   
-   name: "LogiFrom",
-    
+    name: 'LoginFrom',
     components:{
-        LoginNav,
-        LoginSocial,
-        LoginResgistry,
-        FormError,
-        FormSubtmit,
-        LonginRecover
+      LoginIn,
+      LoginRegister
+    },
+    data(){
+        return{
+            view: this.$route.params.view
+        }
+    }, 
+    methods:{
+        setView(vista){
+            this.view = vista;
+            router.push(`/acceso/${vista}`);
+        }
     }
-    
-
 }
 </script>
 
-<style lang="scss">
-
-.form{
-
-    width: 400px;
-    padding: 20px;
-    height: 100vh;
-    background: white;
-
-
-   @media (min-width:  770px) {
-       position: absolute;
-        top:0;
-        right: 0;
+<style scoped lang="scss">
+    .LoginForm{
+        width: 100%;
+        height: 100%;
         display: flex;
-        flex-direction: column;
         justify-content: center;
-   }
-
-}
-
-
+        align-items: flex-start;
+        background-color: white;
+        &__Content{
+            width: 100%;
+            height: 100%;
+        }
+        &__Switch{
+            width: 100%;
+            height: 60px;
+            border-bottom: 3px solid rgb(224, 224, 224);
+            padding: 0px 35px;
+            display: grid;
+            grid-template-columns: 1fr 1fr; 
+            div,a{
+                display: flex;
+                color: black;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                cursor: pointer;
+                .Title-5{
+                    font-weight: bold;
+                }
+                .Switch__Stick{
+                    position: absolute;
+                    bottom: -1px;
+                    left: 0;
+                    width: 0;
+                    height: 5px;
+                    background-color: black;
+                    transition: .3s all;
+                }
+            }
+            div:hover .Switch__Stick,a:hover .Switch__Stick{
+                width: 100%;
+            }
+            .is-active .Switch__Stick{
+                width: 100%;
+            }
+        }
+    }
 </style>

@@ -62,13 +62,19 @@ export default {
         }
     },
     methods:{
-        ...mapActions(['getCursoAction'])
+        ...mapActions(['getCursoAction', 'setFooterAction', 'setNavAction'])
     },
     computed:{
         ...mapState(['curso'])
     },
     created(){
-        this.getCursoAction(this.id)
+        this.getCursoAction(this.id);
+        this.setFooterAction(true);
+        this.setNavAction({
+            visibility: true,
+            solid: false
+        });
+        window.scroll(0,0);
     }
 }
 </script>

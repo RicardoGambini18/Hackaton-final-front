@@ -1,134 +1,76 @@
 <template>
-
-
-<div class="shoppings">
-
-    <div class="shoppings__card">
-        <div class="shoppings__image">
-            <img src="assets/shoppingcard.png"  class="shoppings__img" alt="">
-        </div>
-        <div class="shoppings__content">
-            <p  class="shoppings__title">Gestión de Envases, Empaques y Embalajes</p>
-            <p  class="shoppings__sale"> 25% </p>
-            <a   class="shoppings__delete" href="">Eliminar</a>
-            <p class="shoppings__preci">269</p>
-
-        </div>
-    </div>
-     <div class="shoppings__card">
-        <div class="shoppings__image">
-            <img src="assets/shoppingcard.png"  class="shoppings__img" alt="">
-        </div>
-        <div class="shoppings__content">
-            <p  class="shoppings__title">Gestión de Envases, Empaques y Embalajes</p>
-            <p  class="shoppings__sale"> 25% </p>
-            <a   class="shoppings__delete" href="">Eliminar</a>
-            <p class="shoppings__preci">269</p>
-
-        </div>
-    </div>
-
-</div>
-
-
+  <div class="ShoppingCard">
+      <div class="ShoppingCard__Img">
+          <img src="/assets/back_end.png">
+      </div>
+      <div class="ShoppingCard__Content">
+          <p class="Title-4 ShoppingCard__Title">Diseño de Experiencia de Usuario</p>
+          <p class="Title-4 ShoppingCard__Price">S/ 269.00</p>
+          <p class="Parrafo ShoppingCard__Discount">Dto. 25%</p>
+          <p class="Parrafo ShoppingCard__Delete">Eliminar</p>
+      </div>
+  </div>
 </template>
 
 <script>
 export default {
-
+    name: 'ShoppingCard'
 }
 </script>
 
-<style lang="scss">
-
-.shoppings{
-
-    
-    
-   
-
-    &__card{
-
-    width: 100%;
-   
-    display: flex;
-    flex-direction: row;
-    margin: 20px 0px;
-   
-    }
-    &__image{
-        
-        width: 200px;
-    }
-    &__img{
-
-       width: 100%;
-       height: 150px;
-        
-    }
-    &__content{
-    width: 100%;
-    margin-left: 20px;
-    display:  flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    position: relative;
-    
-    
-
-    }
-    &__title{
-
-        font-family: 'Roboto' sans-serif;
-        font-weight: 700;
-        width: 250px;
-        text-align: left;
-    }
-    &__sale{
-        font-family: 'Poppins', sans-serif;
-        color: var(--Primary);
-        font-weight: 400;
-        &::before{
-        
-        content: 'Dto.';
+<style scoped lang="scss">
+    .ShoppingCard{
+        width: 100%;
+        min-height: 100px;
+        display: grid;
+        grid-template-columns: 133px 1fr;
+        grid-column-gap: 20px;
+        &__Img{
+            width: 100%;
+            height: 100%;
+            img{
+                width: 100%;
+                height: 100%;
+            }
         }
-
-    }
-    &__delete{
-        text-decoration: underline;
-        cursor: pointer;
-        font-family: 'Poppins', sans-serif;
-        color: var(--Primary);
-        font-weight: bold;
-
-    }
-    &__preci{
-          font-family: 'Poppins', sans-serif;
-         
-          font-weight: bold;
-          color: var(--Dark);
-          position: absolute;
-          bottom: 0;
-          right: 0;
-
-          &::before{
-
-              content: 'S/.';
-          }
-          &::after{
-              content: '.00';
-
-          }
-          @media (min-width:  770px) { 
-
-          top: 0;
-          
-           
+        &__Content{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            padding-bottom: 25px;
         }
-
+        &__Title{
+            font-weight: bold;
+        }
+        &__Price{
+            font-weight: bold;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+        &__Discount{
+            font-weight: bold;
+            color: var(--Primary);
+            margin-top: 5px;
+        }
+        &__Delete{
+            color: var(--Primary);
+            text-decoration: underline;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            cursor: pointer;
+        }
     }
-    
-}
-
+    @media screen and (min-width: 770px){
+        .ShoppingCard{
+            &__Content{
+                padding-right: 90px;
+                padding-bottom: 0;
+            }
+            &__Price{
+                top: 0;
+            }
+        }
+    }
 </style>
