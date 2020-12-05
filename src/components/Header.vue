@@ -1,28 +1,53 @@
 <template>
   <nav class="Nav l-container-full" v-if="(visibility) && (solid)">
       <div class="l-section">
-          <router-link to="/" class="Nav__Logo">
-            <img src="/assets/logo.svg">
-          </router-link>
-          <img src="/assets/menu.svg" class="Nav__Menu">
+          <NavLogo
+            :view="vista.view"
+            :back="vista.back"
+          />
+          <NavAccess
+            :number="carrito.length"
+          />
+          <NavAccessMob />
       </div>
   </nav>
   <nav class="Nav l-container-full" id="nav" v-else-if="(visibility) && (solid==false)">
       <div class="l-section">
-          <router-link to="/" class="Nav__Logo">
-            <img src="/assets/logo.svg">
-          </router-link>
-          <img src="/assets/menu.svg" class="Nav__Menu">
+          <NavLogo
+            :view="vista.view"
+            :back="vista.back"
+          />
+          <NavAccess
+            :number="carrito.length"
+          />
+          <NavAccessMob />
       </div>
   </nav>
 </template>
 
 <script>
+import { mapActions , mapState } from 'vuex';
+import NavLogo from '@/components/NavLogo.vue';
+import NavAccess from '@/components/NavAccess.vue';
+import NavAccessMob from '@/components/NavAccessMob.vue';
+
 export default {
     name: 'Header',
     props:{
         visibility: Boolean,
-        solid: Boolean
+        solid: Boolean,
+        vista: Object
+    },
+    components:{
+        NavLogo,
+        NavAccess,
+        NavAccessMob
+    },
+    computed:{
+        ...mapState(['carrito'])
+    },
+    methods:{
+        ...mapActions(['cargarUsuarioAction'])
     },
     created(){
         window.addEventListener("scroll",()=>{
@@ -36,6 +61,10 @@ export default {
                 }
             }
         })
+        this.cargarUsuarioAction();
+    },
+    updated(){
+        this.cargarUsuarioAction();
     }
 }
 </script>
@@ -55,36 +84,14 @@ export default {
             align-items: center;
             position: relative;
         }
-        &__Logo{
-            width: 138px;
-            height: 22px;
-            cursor: pointer;
-            img{
-                width: 100%;
-                height: 100%;
-            }
-        }
-        &__Menu{
-            width: 24px;
-            height: 24px;
-            cursor: pointer;
-        }
     }
     #nav{
         background: none;
         transition: .3s all;
     }
-    @media screen and (min-width: 770px){
+    @media screen and (min-width: 990px){
         .Nav{
             height: 70px;
-            &__Logo{
-                width: 184px;
-                height: 33px;
-            }
-            &__Menu{
-                width: 30px;
-                height: 30px;
-            }
         }
     }
 </style>

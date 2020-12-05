@@ -22,12 +22,15 @@
       </div>
 
         <div v-if="precio">
-            <div class="Card-Cart">
+            <div v-if="carrito.some( curso => { return curso.id == id } )" class="Card-Cart">
+                <p class="Title-5">Agregado &#10004;</p>
+            </div>
+            <div class="Card-Cart" @click="addCarritoAction(id)" v-else>
                 <img src="/assets/shopping_card.svg">
                 <p v-if="descuento" class="Title-5">S/ <span class="DiscountPrice">{{precio}}</span> {{Math.round(precio * ((100 - descuento)/100))}}</p>
                 <p v-else class="Title-5">S/ {{precio}}</p>
             </div>
-
+            
             <router-link 
                 :to="{
                     name: 'Especialidad',
@@ -48,6 +51,8 @@
 </template>
 
 <script>
+import { mapActions , mapState } from 'vuex';
+
 export default {
     name: 'Card',
     props:{
@@ -56,6 +61,12 @@ export default {
         img: String,
         precio: Number,
         descuento: Number
+    },
+    methods:{
+        ...mapActions(['addCarritoAction'])
+    },
+    computed:{
+        ...mapState(['carrito'])
     }
 }
 </script>

@@ -3,18 +3,36 @@
       <div class="ShoppingCard__Img">
           <img src="/assets/back_end.png">
       </div>
-      <div class="ShoppingCard__Content">
-          <p class="Title-4 ShoppingCard__Title">Diseño de Experiencia de Usuario</p>
-          <p class="Title-4 ShoppingCard__Price">S/ 269.00</p>
-          <p class="Parrafo ShoppingCard__Discount">Dto. 25%</p>
+      <div class="ShoppingCard__Content is-resumen" v-if="resumen == 'true'">
+          <p class="Title-4 ShoppingCard__Title">{{curso.nombre}}</p>
+          <p class="Title-4 ShoppingCard__Price">S/ {{Math.round(curso.precio * ((100 - curso.descuento)/100))}}.00</p>
+          <p class="Parrafo ShoppingCard__Discount">Dto. {{curso.descuento}}%</p>
           <p class="Parrafo ShoppingCard__Delete">Eliminar</p>
+      </div>
+      <div class="ShoppingCard__Content" v-else>
+          <p class="Title-4 ShoppingCard__Title">{{curso.nombre}}</p>
+          <p class="Title-4 ShoppingCard__Price">S/ {{Math.round(curso.precio * ((100 - curso.descuento)/100))}}.00</p>
+          <p class="Parrafo ShoppingCard__Discount">Dto. {{curso.descuento}}%</p>
+          <p class="Parrafo ShoppingCard__Delete" @click="deleteCarritoAction(curso.id)">Eliminar</p>
       </div>
   </div>
 </template>
 
 <script>
+import { mapActions , mapState } from 'vuex';
+
 export default {
-    name: 'ShoppingCard'
+    name: 'ShoppingCard',
+    props:{
+        resumen: String,
+        curso: Object
+    },
+    methods:{
+        ...mapActions(['deleteCarritoAction'])
+    },
+    computed:{
+        ...mapState(['carrito'])
+    }
 }
 </script>
 
@@ -61,6 +79,11 @@ export default {
             left: 0;
             cursor: pointer;
         }
+        .is-resumen{
+            .ShoppingCard__Delete{
+                display: none;
+            }
+        }
     }
     @media screen and (min-width: 770px){
         .ShoppingCard{
@@ -70,6 +93,19 @@ export default {
             }
             &__Price{
                 top: 0;
+                bottom: auto;
+            }
+        }
+    }
+    @media screen and (min-width: 770px) {
+        .ShoppingCard{
+            .is-resumen{
+                padding-right: 0;
+                padding-bottom: 0;
+                .ShoppingCard__Price{
+                    bottom: 0;
+                    top: auto; 
+                }
             }
         }
     }

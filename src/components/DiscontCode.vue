@@ -9,14 +9,24 @@
             <input type="text" class="Parrafo" placeholder="Agrega un código de descuento">
             <img src="/assets/imput_send.svg">
         </div>
-        <button class="DiscontCode__Button Title-5">Continuar</button>
+        <router-link to="/pasarela" v-if="carrito.length">
+             <button class="DiscontCode__Button Title-5">Continuar</button>
+        </router-link>
+        <router-link to="/" v-else>
+             <button class="DiscontCode__Button Title-5" disabled style="cursor: no-drop">Continuar</button>
+        </router-link>
       </div>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
-    name: 'DiscontCode'
+    name: 'DiscontCode',
+    computed:{
+        ...mapState(['carrito'])
+    }
 }
 </script>
 

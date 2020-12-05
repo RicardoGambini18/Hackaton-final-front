@@ -72,8 +72,15 @@ export default {
         this.setFooterAction(true);
         this.setNavAction({
             visibility: true,
-            solid: false
+            solid: false,
+            vista:{
+                view: "",
+                back: ""
+            }
         });
+        window.scroll(0,0);
+    },
+    updated(){
         window.scroll(0,0);
     }
 }

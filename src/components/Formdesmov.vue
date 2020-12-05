@@ -3,20 +3,20 @@
     <h3 class="Title-4">Postula y obtén un 10% de descuento en el programa</h3>
     <form>
         <div>
-            <input class="f-Small" type="text" placeholder="NOMBRE">
+            <input class="Parrafo" type="text" placeholder="NOMBRE">
         </div>
         <div>
-            <input class="f-Small" type="text" placeholder="CELULAR">
+            <input class="Parrafo" type="text" placeholder="CELULAR">
         </div>
         <div>
-            <input class="f-Small" type="text" placeholder="CORREO ELECTRÓNICO">
+            <input class="Parrafo" type="text" placeholder="CORREO ELECTRÓNICO">
         </div>
         <div>
-            <input class="f-Small" type="text" placeholder="PROGRAMA">
+            <input class="Parrafo" type="text" placeholder="PROGRAMA">
         </div>
         <div class="Formdesmov-check">
             <input type="checkbox" id="check-politica-mob">
-            <label class="f-Small" for="check-politica-mob">Acepto las políticas de privacidad</label>
+            <label class="Parrafo" for="check-politica-mob">Acepto las políticas de privacidad</label>
         </div>
         <div>
             <button type="submit" class="Title-5">Quiero Postular</button>
@@ -41,7 +41,6 @@ export default {
             padding: 15px 10px;
             border: 1px solid #8B9099;
             border-radius: 5px;
-            font-size: 12px;
             width: 100%;
         }
         div{

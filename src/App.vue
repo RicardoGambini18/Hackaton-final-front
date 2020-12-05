@@ -3,6 +3,7 @@
     <Header 
       :visibility="nav.visibility"
       :solid="nav.solid"
+      :vista="nav.vista"
     />
     <router-view/>
     <div class="footer-final l-container-full" v-if="footer">

@@ -12,17 +12,34 @@
           </div>
           <p class="Parrafo">También puedes registrarte con tu correo</p>
       </div>
-      <form class="LoginIn__Form">
-            <input class="Parrafo" type="email" placeholder="Correo electrónico"> 
-            <input class="Parrafo" type="password" placeholder="Contraseña">
+      <form class="LoginIn__Form" @submit.prevent="logInUsuarioAction(usuario)">
+            <input class="Parrafo" type="email" placeholder="Correo electrónico" v-model="usuario.email" required> 
+            <input class="Parrafo" type="password" placeholder="Contraseña" v-model="usuario.password" required>
+            <p class="error Parrafo" v-if="error">{{error}}</p>
             <input class="Title-5" type="submit" value="Ingresar">
       </form>
   </div>
 </template>
 
 <script>
+import { mapActions , mapState } from 'vuex'
+
 export default {
-    name: 'LoginIn'
+    name: 'LoginIn',
+    data(){
+        return {
+            usuario:{
+                email: "",
+                password: ""
+            }
+        }
+    },
+    methods:{
+        ...mapActions(['logInUsuarioAction'])
+    },
+    computed:{
+        ...mapState(['error'])
+    }
 }
 </script>
 
@@ -30,6 +47,18 @@ export default {
     .LoginIn{
         padding: 0 35px;
         width: 100%;
+        .error{
+            color: white;
+            background: rgb(252, 53, 53);
+            text-align: center;
+            padding: 10px 20px;
+            border-radius: 10px;
+            margin-top: 15px;
+            margin-bottom: -15px;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
         &__Social{
             margin-top: 35px;
             display: grid;

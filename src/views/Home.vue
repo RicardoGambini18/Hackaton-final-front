@@ -17,7 +17,6 @@
 
 <script>
 import Hero from '@/components/Hero.vue';
-import Header from '@/components/Header.vue';
 import Footer from '@/components/Footer.vue';
 import Respaldo from '@/components/Respaldo.vue';
 import Programas from '@/components/Programas.vue';
@@ -28,7 +27,6 @@ export default {
   name: 'Home',
   components:{
     Hero,
-    Header,
     Footer,
     Respaldo,
     Programas,
@@ -41,7 +39,11 @@ export default {
       this.setFooterAction(true);
       this.setNavAction({
         visibility: true,
-        solid: false
+        solid: false,
+        vista:{
+          view: "",
+          back: ""
+        }
       });
       window.scroll(0,0);
   }

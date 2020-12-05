@@ -27,7 +27,11 @@ export default {
         this.setFooterAction(false);
         this.setNavAction({
             visibility: false,
-            solid: false
+            solid: false,
+            vista:{
+                view: "",
+                back: ""
+            }
         });
         window.scroll(0,0);
     }

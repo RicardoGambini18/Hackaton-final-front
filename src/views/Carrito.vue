@@ -2,14 +2,24 @@
   <div class="l-container-pd carrito">
       <div class="l-section">
           <div class="carrito__back">
-              <img src="/assets/back-shop.svg">
+              <router-link to="/">
+                  <img src="/assets/back-shop.svg">
+              </router-link>
               <h3 class="Title-3">Carrito de compras</h3>
           </div>
           <div class="carrito__content">
               <div class="carrito__cardbox">
-                <ShoppingCard />
-                <ShoppingCard />
-                <ShoppingCard />
+                  <div class="CardCart" v-if="carrito.length">
+                      <ShoppingCard
+                        v-for="curso in carrito"
+                        :key="curso.id"
+                        resumen="false"
+                        :curso="curso"
+                      />
+                  </div>
+                  <div v-else>
+                      <p class="Title-4">No se encontraron productos en el carrito. Vuelva al home para seguir comprando.</p>
+                  </div>
               </div>
               <div class="carrito__subtotal">
                 <DiscontCode />
@@ -22,7 +32,7 @@
 <script>
 import ShoppingCard from '@/components/ShoppingCard.vue';
 import DiscontCode from '@/components/DiscontCode.vue';
-import { mapActions } from 'vuex'
+import { mapActions , mapState } from 'vuex'
 
 export default {
     name: 'Carrito',
@@ -33,11 +43,18 @@ export default {
     methods:{
         ...mapActions(['setFooterAction', 'setNavAction'])
     },
+    computed:{
+        ...mapState(['carrito'])
+    },
     created(){
         this.setFooterAction(true);
         this.setNavAction({
             visibility: true,
-            solid: true
+            solid: true,
+            vista:{
+                view: "Carrito de compras",
+                back: ""
+            }
         });
         window.scroll(0,0);
     }
@@ -73,9 +90,11 @@ export default {
             grid-row-gap: 55px;
         }
         &__cardbox{
-            display: grid;
             width: 100%;
-            grid-row-gap: 20px;
+            .CardCart{
+                display: grid;
+                grid-row-gap: 20px;
+            }
         }
         &__subtotal{
             width: 100%;

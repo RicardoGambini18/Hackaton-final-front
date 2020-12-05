@@ -1,4 +1,4 @@
-<template>
+ required<template>
   <div class="LoginRegister">
       <div class="LoginRegister__Social">
           <p class="Parrafo">Puedes registrarte con:</p>
@@ -12,23 +12,45 @@
           </div>
           <p class="Parrafo">También puedes registrarte con tu correo</p>
       </div>
-      <div class="LoginRegister__Form">
-          <input class="Parrafo" type="text" placeholder="Nombres y Apellidos">
-          <input class="Parrafo" type="email" placeholder="Correo electrónico">
-          <input class="Parrafo" type="password" placeholder="Contraseña">
-          <input class="Parrafo" type="password" placeholder="Repite Contraseña">
+      <form @submit.prevent="registrarUsuarioAction(registro)" class="LoginRegister__Form">
+          <input class="Parrafo" type="text" placeholder="Nombres y Apellidos" v-model="registro.nombre" required>
+          <input class="Parrafo" type="email" placeholder="Correo electrónico" v-model="registro.email" required>
+          <input class="Parrafo" type="password" placeholder="Contraseña" v-model="registro.pass1" required>
+          <input class="Parrafo" type="password" placeholder="Repite Contraseña" v-model="registro.pass2" required>
           <div class="FormCheck">
-              <input type="checkbox" id="registerTerm">
+              <input type="checkbox" id="registerTerm" v-model="registro.term" required>
               <label for="registerTerm" class="Parrafo">Acepto <span class="is-term">Términos y condiciones</span></label>
           </div>
+          <p class="error Parrafo" v-if="error">
+              {{error}}
+          </p>
           <input type="submit" class="Title-5" value="Registrarse">
-      </div>
+      </form>
   </div>
 </template>
 
 <script>
+import { mapState , mapActions } from 'vuex';
+
 export default {
-    name: 'LoginRegister'
+    name: 'LoginRegister',
+    data(){
+        return{
+            registro:{
+                nombre: "",
+                email: "",
+                pass1: "",
+                pass2: "",
+                term: ""
+            }
+        }
+    },
+    methods:{
+        ...mapActions(['registrarUsuarioAction'])
+    },
+    computed:{
+        ...mapState(['error'])
+    }
 }
 </script>
 
@@ -36,6 +58,18 @@ export default {
     .LoginRegister{
         padding: 0 35px;
         width: 100%;
+        .error{
+            color: white;
+            background: rgb(252, 53, 53);
+            text-align: center;
+            padding: 10px 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            margin-bottom: -15px;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
         &__Social{
             margin-top: 35px;
             display: grid;
